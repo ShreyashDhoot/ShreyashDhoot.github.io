@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Shreyash Dhoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .project { border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); margin-bottom: 24px; overflow: hidden; transition: border-color 0.25s ease; }
+  .project:hover { border-color: var(--border-bright); }
+  .project-flag { display: flex; align-items: center; gap: 10px; padding: 14px 28px; background: rgba(52, 199, 149, 0.06); border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.06em; }
+  .project-body { padding: 32px 28px; }
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+  .project-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+  .project-links { display: flex; gap: 10px; flex-shrink: 0; }
+  .project-desc { color: var(--text-dim); max-width: 68ch; margin-bottom: 20px; }
+  .project-desc strong { color: var(--text); font-weight: 500; }
+  .project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .project-highlights { list-style: none; display: grid; gap: 10px; font-size: 0.92rem; color: var(--text-dim); }
+  .project-highlights li { padding-left: 20px; position: relative; }
+  .project-highlights li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono); }
+
+  .minor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .minor-card { border: 1px solid var(--border); border-radius: 6px; padding: 22px; background: var(--bg-card); transition: border-color 0.2s; }
+  .minor-card:hover { border-color: var(--border-bright); }
+  .minor-card .mc-name { font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: block; }
+  .minor-card .mc-desc { font-size: 13px; color: var(--text-faint); margin-bottom: 14px; }
+  .minor-card .mc-lang { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
+</style>
+</head>
+<body data-page="work">
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="page-kicker">03 · WORK</div>
+    <h1 class="page-title">Applied builds & coursework.</h1>
+    <p class="page-sub">Everything I've shipped outside the core research thread — a hackathon RAG system, and coursework spanning CV, NLP, data mining, and bioinformatics.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Featured Build</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="project">
+      <div class="project-flag">★ HACKATHON BUILD</div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-name">hackrx-bajaj-MVP</div>
+          <div class="project-links">
+            <a class="link-arrow" href="https://github.com/ShreyashDhoot/hackrx-bajaj-MVP" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          <strong>Intelligent policy-document Q&A, built for the Bajaj Hackathon.</strong> An end-to-end
+          FastAPI service that takes a PDF URL and a list of questions and returns grounded answers,
+          combining a custom visual-layout chunking method with semantic retrieval.
+        </p>
+        <div class="project-meta">
+          <span class="pill">FastAPI</span>
+          <span class="pill">OpenCV</span>
+          <span class="pill">Pinecone</span>
+          <span class="pill">MiniLM Embeddings</span>
+          <span class="pill">Gemini</span>
+          <span class="pill">TF-IDF</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Query expansion step uses an LLM to turn each question into keyword-rich sub-queries before retrieval, improving recall on dense policy language.</li>
+          <li>Custom OpenCV-based chunking detects text bounding boxes on low-contrast page renders, keeping spatially-related policy text together instead of splitting on fixed character counts.</li>
+          <li>Multi-step retrieval blends TF-IDF page scoring with MiniLM vector search over Pinecone before generation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Coursework</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="minor-grid">
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/IPPR_coursework" target="_blank" rel="noopener"><span class="mc-name">IPPR_coursework</span></a>
+        <p class="mc-desc">Image Processing & Pattern Recognition — six documented experiments from classical filtering through edge detection.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/NLP_coursework" target="_blank" rel="noopener"><span class="mc-name">NLP_coursework</span></a>
+        <p class="mc-desc">Natural Language Processing coursework and lab submissions.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/DNN_coursework" target="_blank" rel="noopener"><span class="mc-name">DNN_coursework</span></a>
+        <p class="mc-desc">Deep Neural Networks foundations — MP neuron and perceptron implementations from first principles.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/DataMining_coursework" target="_blank" rel="noopener"><span class="mc-name">DataMining_coursework</span></a>
+        <p class="mc-desc">Lab submissions and materials for Data Mining coursework.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/bioinformatics_assignment1" target="_blank" rel="noopener"><span class="mc-name">bioinformatics_assignment 1 & 2</span></a>
+        <p class="mc-desc">Computational biology coursework assignments (CCA 3 & 4).</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/linear_regression" target="_blank" rel="noopener"><span class="mc-name">linear_regression</span></a>
+        <p class="mc-desc">Examines marginal accuracy gains in multivariate regression from applying standard ML best practices step by step.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/DataQuest" target="_blank" rel="noopener"><span class="mc-name">DataQuest</span></a>
+        <p class="mc-desc">Experimental models built for the DataQuest hackathon.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+      <div class="minor-card">
+        <a href="https://github.com/ShreyashDhoot/learning-pytorch" target="_blank" rel="noopener"><span class="mc-name">learning-pytorch</span></a>
+        <p class="mc-desc">PyTorch fundamentals through a full classification workflow, worked through via FreeCodeCamp.</p>
+        <span class="mc-lang">● Jupyter Notebook</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:shreyashdhoot@gmail.com">Email</a>
+      <a href="https://github.com/ShreyashDhoot" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shreyashdhoot" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    Built by Shreyash Dhoot · Served over GitHub Pages
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interests — Shreyash Dhoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .subtabs {
+    display: flex; gap: 4px; margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .subtab {
+    font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
+    padding: 14px 20px; border-bottom: 2px solid transparent;
+    white-space: nowrap; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none;
+    transition: all 0.2s;
+  }
+  .subtab:hover { color: var(--text); }
+  .subtab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .subpanel { display: none; }
+  .subpanel.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .story-card {
+    border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card);
+    padding: 32px; margin-bottom: 24px; transition: border-color 0.25s;
+  }
+  .story-card:hover { border-color: var(--border-bright); }
+  .story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
+  .story-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; }
+  .story-meta { font-family: var(--font-mono); font-size: 11px; color: var(--gold); }
+  .story-body { color: var(--text-dim); max-width: 68ch; }
+  .story-body strong { color: var(--text); font-weight: 500; }
+  .story-body p { margin-bottom: 14px; }
+
+  .edit-note {
+    margin-top: 20px; padding: 14px 18px; border-left: 2px solid var(--warn);
+    background: rgba(224, 164, 88, 0.06); font-family: var(--font-mono); font-size: 12px; color: var(--text-faint);
+  }
+
+  .obsession-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .obsession-card { border: 1px solid var(--border); border-radius: 6px; padding: 24px; background: var(--bg-card); }
+  .obsession-card .oc-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .obsession-card h4 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 8px; }
+  .obsession-card p { color: var(--text-faint); font-size: 13px; }
+</style>
+</head>
+<body data-page="interests">
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="page-kicker">04 · INTERESTS</div>
+    <h1 class="page-title">The stuff outside the lab.</h1>
+    <p class="page-sub">Hackathon war stories, trail running, sketching, and whatever nerdy rabbit hole I'm currently down.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="subtabs" role="tablist">
+      <button class="subtab active" data-tab="hackathons" role="tab">Hackathons</button>
+      <button class="subtab" data-tab="fun" role="tab">General Fun Stuff</button>
+      <button class="subtab" data-tab="obsessions" role="tab">Nerdy Obsessions</button>
+    </div>
+
+    <!-- HACKATHONS -->
+    <div class="subpanel active" id="panel-hackathons">
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">The Circuit Hunt <span style="color:var(--text-faint); font-weight:400; font-size:0.65em;">— 2nd Year, College</span></div>
+          <div class="story-meta">🏆 WINNER</div>
+        </div>
+        <div class="story-body">
+          <p>
+            <strong>Part scavenger hunt, part build challenge.</strong> Teams were given a set of clues that
+            pointed to physical locations around the college building — solve the clue, find the spot, and it
+            revealed which electronic components you got to "acquire." The catch: you had to actually
+            <strong>build a working circuit</strong> from whatever you managed to procure, and the first team
+            to get a functioning model up won.
+          </p>
+          <p>
+            <!-- EDITABLE: add specifics — what did you build, how many teams, what made you win, any near-disaster moment -->
+            Add the details here: what circuit did you end up building, how many teams were competing, what was
+            the trickiest clue, and what actually won it for you — speed, cleverness, or just better soldering
+            under pressure?
+          </p>
+        </div>
+        <div class="edit-note">// Draft — fill in the specifics of what you built and how the win happened.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">Bajaj Hackathon — hackrx-bajaj-MVP</div>
+          <div class="story-meta">BUILT & SHIPPED</div>
+        </div>
+        <div class="story-body">
+          <p>
+            Built an end-to-end policy-document Q&A system in the compressed timeframe of a hackathon —
+            PDF ingestion, custom OpenCV-based chunking, vector search, and an LLM answering layer, all
+            wired together into a working FastAPI service.
+          </p>
+          <p>
+            <!-- EDITABLE: add the human side — team size, what broke at 3am, how it placed -->
+            Add the story here: who'd you build it with, what almost didn't work, how did it place?
+          </p>
+        </div>
+        <div class="edit-note">// Draft — add team, placement, and the behind-the-scenes moment worth telling.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">DataQuest Hackathon</div>
+          <div class="story-meta">BUILT & SHIPPED</div>
+        </div>
+        <div class="story-body">
+          <p>
+            <!-- EDITABLE -->
+            Add a short story here about the DataQuest hackathon — what the challenge was, what you built, how it went.
+          </p>
+        </div>
+        <div class="edit-note">// Draft — this one's a blank slate, tell me what happened.</div>
+      </div>
+    </div>
+
+    <!-- GENERAL FUN STUFF -->
+    <div class="subpanel" id="panel-fun">
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">Ultra Trail Running</div>
+        </div>
+        <div class="story-body">
+          <p>
+            <!-- EDITABLE -->
+            Write about your relationship with ultra trail running here — how you got into it, your favorite
+            routes or races, distances you've done, what it does for your head that sitting in front of a
+            GPU doesn't.
+          </p>
+        </div>
+        <div class="edit-note">// Draft — this is your voice, not mine. Tell me the real version.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">Sketching & Art</div>
+        </div>
+        <div class="story-body">
+          <p>
+            <!-- EDITABLE -->
+            Write about sketching/art here — what you like to draw, medium, whether it's a stress outlet or
+            something more deliberate, any pieces you're proud of.
+          </p>
+        </div>
+        <div class="edit-note">// Draft — add specifics, and if you have images, I can build a small gallery.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">Whatever Else</div>
+        </div>
+        <div class="story-body">
+          <p>
+            <!-- EDITABLE -->
+            Anything else that belongs here — music, food, travel, a weird hobby, whatever makes this feel like you.
+          </p>
+        </div>
+        <div class="edit-note">// Draft — open slot, use it or delete it.</div>
+      </div>
+    </div>
+
+    <!-- NERDY OBSESSIONS -->
+    <div class="subpanel" id="panel-obsessions">
+      <div class="obsession-grid">
+        <div class="obsession-card">
+          <div class="oc-icon">🌀</div>
+          <h4>Chaotic Systems</h4>
+          <p>Enough to write a paper about it — the throughline behind stochastic_chaos and honestly half my research taste.</p>
+        </div>
+        <div class="obsession-card">
+          <div class="oc-icon">🎨</div>
+          <h4>Diffusion Internals</h4>
+          <p>Not just using diffusion models — actually poking at what happens inside the denoising trajectory step by step.</p>
+        </div>
+        <div class="obsession-card">
+          <div class="oc-icon">?</div>
+          <h4><!-- EDITABLE --> Add one</h4>
+          <p>What's a rabbit hole you've gone down recently that isn't obviously "career relevant" but you can't stop thinking about?</p>
+        </div>
+        <div class="obsession-card">
+          <div class="oc-icon">?</div>
+          <h4><!-- EDITABLE --> Add one</h4>
+          <p>Same as above — could be a game, a math curiosity, a piece of hardware, anything.</p>
+        </div>
+      </div>
+      <div class="edit-note" style="margin-top: 24px;">// Draft — replace the "?" cards with your actual obsessions. Keep the ones about chaos/diffusion if they're accurate.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:shreyashdhoot@gmail.com">Email</a>
+      <a href="https://github.com/ShreyashDhoot" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shreyashdhoot" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    Built by Shreyash Dhoot · Served over GitHub Pages
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  document.querySelectorAll('.subtab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.subpanel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

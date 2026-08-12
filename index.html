@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreyash Dhoot</title>
+<meta name="description" content="Shreyash Dhoot — Undergraduate AI Researcher, EEE. Diffusion model safety, computer vision, ultra trail running, sketching.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  header.hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 64px;
+  }
+  .hero-kicker {
+    font-family: var(--font-mono); font-size: 13px; color: var(--accent);
+    letter-spacing: 0.08em; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+    opacity: 0; animation: fadeUp 0.8s 0.1s ease-out forwards;
+  }
+  .hero-kicker::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  h1.hero-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: 1.02; letter-spacing: -0.02em;
+    max-width: 900px;
+    margin: 0;
+    opacity: 0; animation: fadeUp 0.8s 0.25s ease-out forwards;
+  }
+  .hero-title-wrap {
+    max-width: 880px;
+    opacity: 0; animation: fadeUp 0.8s 0.25s ease-out forwards;
+  }
+  .hero-keywords {
+    display: flex; flex-wrap: wrap; gap: 10px 18px;
+    margin-top: 18px; margin-bottom: 24px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr);
+    gap: 36px;
+    align-items: center;
+  }
+  .hero-panel {
+    max-width: 620px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.01);
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .hero-panel strong { color: var(--text); font-weight: 500; }
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; animation: fadeUp 0.8s 0.5s ease-out forwards;
+  }
+  .photo-collage {
+    width: min(100%, 430px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .photo-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    min-height: 120px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  .photo-tile.tall { grid-row: span 2; min-height: 256px; }
+  .photo-tile img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(0.92) contrast(1.02);
+  }
+  .hero-sub {
+    margin-top: 28px; max-width: 620px; font-size: 1.08rem; color: var(--text-dim);
+    opacity: 0; animation: fadeUp 0.8s 0.4s ease-out forwards;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .hero-actions {
+    margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.55s ease-out forwards;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  .denoise-strip {
+    margin-top: 72px; display: flex; align-items: center; max-width: 640px;
+    opacity: 0; animation: fadeUp 1s 0.7s ease-out forwards;
+  }
+  .denoise-strip .cell { width: 14px; height: 14px; margin-right: 3px; border-radius: 2px; flex-shrink: 0; }
+  .denoise-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); margin-top: 12px; letter-spacing: 0.03em; }
+
+  .quicklinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .quicklinks { grid-template-columns: 1fr; } }
+  .ql-card {
+    border: 1px solid var(--border); border-radius: 6px; padding: 28px; background: var(--bg-card);
+    transition: all 0.25s ease;
+  }
+  .ql-card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
+  .ql-card .ql-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 12px; }
+  .ql-card h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 10px; }
+  .ql-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 16px; }
+  .ql-card .ql-go { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); }
+  .ql-card:hover .ql-go { color: var(--accent); }
+
+  .snapshot-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
+  @media (max-width: 800px) { .snapshot-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .snapshot-text p { color: var(--text-dim); font-size: 1.02rem; margin-bottom: 18px; max-width: 56ch; }
+  .snapshot-text strong { color: var(--text); font-weight: 500; }
+  .snapshot-list { display: flex; flex-direction: column; gap: 18px; font-family: var(--font-mono); font-size: 13px; }
+  .snapshot-list li { list-style: none; padding-left: 20px; position: relative; color: var(--text-dim); }
+  .snapshot-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+</style>
+</head>
+<body data-page="home">
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">Shreyash Dhoot</h1>
+        <div class="hero-keywords">
+          <span>AI Safety</span>
+          <span>Alignment</span>
+          <span>Adversarial Robustness</span>
+        </div>
+        <div class="hero-panel">
+          I'm fascinated by the world of AI. My focus is on understanding how to make these models robust against adversarial jailbreaks, aligned with human intent, and ultimately safe for the world to use.
+          When I'm not buried behind my laptop, you can usually find me trail running, sketching, or cooking. 
+        </div>
+        <div class="hero-actions">
+          <a href="research.html" class="btn btn-primary">See the research →</a>
+          <a href="interests.html" class="btn btn-ghost">Get to know me ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Life collage">
+        <div class="photo-collage">
+          <div class="photo-tile tall"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Trail run" /></div>
+          <div class="photo-tile"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop setup" /></div>
+          <div class="photo-tile"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Sketching" /></div>
+          <div class="photo-tile"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Mountain landscape" /></div>
+          <div class="photo-tile"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=800&q=80" alt="Road trip" /></div>
+          <div class="photo-tile"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="People and community" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="denoise-strip" id="denoiseStrip"></div>
+  </div>
+</header>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:shreyashdhoot@gmail.com">Email</a>
+      <a href="https://github.com/ShreyashDhoot" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shreyashdhoot" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    Built by Shreyash Dhoot · Served over GitHub Pages
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  (function() {
+    const strip = document.getElementById('denoiseStrip');
+    if (!strip) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cellCount = 40;
+    const palette = ['#0a0b0d', '#111318', '#1a3d2e', '#1f6b4d', '#2a9c73', '#34c795'];
+    const cells = [];
+    for (let i = 0; i < cellCount; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.style.background = palette[Math.floor(Math.random() * palette.length)];
+      strip.appendChild(cell);
+      cells.push(cell);
+    }
+    if (prefersReduced) {
+      cells.forEach((cell, i) => {
+        const t = i / cellCount;
+        cell.style.background = t < 0.9 ? palette[Math.min(5, Math.floor(t * 6) + 2)] : palette[5];
+      });
+      return;
+    }
+    let step = 0;
+    const totalSteps = 26;
+    function settle() {
+      step++;
+      const resolvedUpTo = Math.floor((step / totalSteps) * cellCount);
+      cells.forEach((cell, i) => {
+        if (i < resolvedUpTo) {
+          const t = i / cellCount;
+          cell.style.background = palette[Math.min(5, Math.floor(t * 6) + 2)];
+          cell.style.transition = 'background 0.5s ease';
+        } else {
+          cell.style.background = palette[Math.floor(Math.random() * 3)];
+        }
+      });
+      if (step < totalSteps) setTimeout(settle, 90);
+    }
+    setTimeout(settle, 900);
+  })();
+</script>
+</body>
+</html>

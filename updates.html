@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updates — Shreyash Dhoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .updates-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
+  @media (max-width: 800px) { .updates-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .snapshot-text p { color: var(--text-dim); font-size: 1.02rem; margin-bottom: 18px; max-width: 56ch; }
+  .snapshot-text strong { color: var(--text); font-weight: 500; }
+  .snapshot-list { display: flex; flex-direction: column; gap: 18px; font-family: var(--font-mono); font-size: 13px; }
+  .snapshot-list li { list-style: none; padding-left: 20px; position: relative; color: var(--text-dim); }
+  .snapshot-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+  .update-card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; padding: 22px; }
+  .update-card + .update-card { margin-top: 18px; }
+</style>
+</head>
+<body data-page="updates">
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="page-kicker">04 · UPDATES</div>
+    <h1 class="page-title">What I'm working on right now.</h1>
+    <p class="page-sub">A quick snapshot of where I am academically, technically, and personally.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="updates-grid">
+      <div class="snapshot-text">
+        <p>
+          I'm a final-year undergraduate in <strong>Electrical, Electronics & Communications Engineering
+          at MIT World Peace University</strong>, currently interning at <strong>HCLTech</strong> on
+          automation and AI-based enhancements, and researching <strong>multimodal & NLP systems</strong>
+          under Prof. Amitava Das at BITS Pilani, Goa, through the Pragya program.
+        </p>
+        <p>
+          My engineering interests sit at the boundary of signal processing and learning systems —
+          I like problems where something looks chaotic on the surface but has exploitable structure
+          underneath, whether that's a denoising trajectory, a nonlinear dynamical system, or a
+          policy-document that needs the right chunk pulled out of it.
+        </p>
+      </div>
+
+      <div>
+        <ul class="snapshot-list">
+          <li>Current: AI research @ Pragya (BITS Pilani Goa) + Intern @ HCLTech</li>
+          <li>Flagship project: GuardPaint — a 6-repo pipeline for safety-aligned diffusion inpainting</li>
+          <li>1 research paper on stochastic chaos, w/ a working collaborative implementation</li>
+          <li>Also: ultra trail runner, sketch-when-stressed artist, chronically curious</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Recent Notes</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="update-card">
+      Working on safer diffusion-based generation pipelines, particularly around alignment, auditing, and intervention during generation rather than after the fact.
+    </div>
+    <div class="update-card">
+      Building and iterating on robust multimodal and policy-document understanding systems for real-world inference tasks.
+    </div>
+    <div class="update-card">
+      Keeping the research direction grounded by studying uncertainty, adversarial behavior, and how structure emerges in chaotic or noisy systems.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:shreyashdhoot@gmail.com">Email</a>
+      <a href="https://github.com/ShreyashDhoot" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shreyashdhoot" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    Built by Shreyash Dhoot · Served over GitHub Pages
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
