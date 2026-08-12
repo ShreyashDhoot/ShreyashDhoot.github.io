@@ -24,8 +24,8 @@
   .project-highlights li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono); }
 
   .minor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-  .minor-card { border: 1px solid var(--border); border-radius: 6px; padding: 22px; background: var(--bg-card); transition: border-color 0.2s; }
-  .minor-card:hover { border-color: var(--border-bright); }
+  .minor-card { display: block; border: 1px solid var(--border); border-radius: 6px; padding: 22px; background: var(--bg-card); transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; cursor: pointer; }
+  .minor-card:hover, .minor-card:focus-visible { border-color: var(--border-bright); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08); }
   .minor-card .mc-name { font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: block; }
   .minor-card .mc-desc { font-size: 13px; color: var(--text-faint); margin-bottom: 14px; }
   .minor-card .mc-lang { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
@@ -36,8 +36,8 @@
 <div class="page-header">
   <div class="wrap">
     <div class="page-kicker">03 · WORK</div>
-    <h1 class="page-title">Applied builds & coursework.</h1>
-    <p class="page-sub">Everything I've shipped outside the core research thread — a hackathon RAG system, and coursework spanning CV, NLP, data mining, and bioinformatics.</p>
+    <h1 class="page-title">Experience & coursework.</h1>
+    <p class="page-sub">Research, engineering internships, and the coursework that shaped my applied ML and NLP work.</p>
   </div>
 </div>
 
@@ -45,37 +45,56 @@
   <div class="wrap">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-title">Featured Build</h2>
+      <h2 class="section-title">Experience</h2>
       <div class="section-line"></div>
     </div>
 
     <div class="project">
-      <div class="project-flag">★ HACKATHON BUILD</div>
+      <div class="project-flag">HCLTECH · INTERN</div>
       <div class="project-body">
         <div class="project-top">
-          <div class="project-name">hackrx-bajaj-MVP</div>
+          <div class="project-name">HCLTech</div>
           <div class="project-links">
-            <a class="link-arrow" href="https://github.com/ShreyashDhoot/hackrx-bajaj-MVP" target="_blank" rel="noopener">Repository ↗</a>
+            <span class="project-date">July 2026 - Present (2 months)</span>
           </div>
         </div>
         <p class="project-desc">
-          <strong>Intelligent policy-document Q&A, built for the Bajaj Hackathon.</strong> An end-to-end
-          FastAPI service that takes a PDF URL and a list of questions and returns grounded answers,
-          combining a custom visual-layout chunking method with semantic retrieval.
+          <strong>Intern</strong><br>
+          Industry Software Division – DFMPro Solution – Automation and AI-Based Enhancements
         </p>
-        <div class="project-meta">
-          <span class="pill">FastAPI</span>
-          <span class="pill">OpenCV</span>
-          <span class="pill">Pinecone</span>
-          <span class="pill">MiniLM Embeddings</span>
-          <span class="pill">Gemini</span>
-          <span class="pill">TF-IDF</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-flag">PRAGYA · UNDERGRADUATE RESEARCHER</div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-name">Pragya</div>
+          <div class="project-links">
+            <span class="project-date">August 2025 - Present (1 year 1 month)</span>
+          </div>
         </div>
-        <ul class="project-highlights">
-          <li>Query expansion step uses an LLM to turn each question into keyword-rich sub-queries before retrieval, improving recall on dense policy language.</li>
-          <li>Custom OpenCV-based chunking detects text bounding boxes on low-contrast page renders, keeping spatially-related policy text together instead of splitting on fixed character counts.</li>
-          <li>Multi-step retrieval blends TF-IDF page scoring with MiniLM vector search over Pinecone before generation.</li>
-        </ul>
+        <p class="project-desc">
+          <strong>Undergraduate Researcher</strong><br>
+          BITS Pilani Birla Institute of Technology Goa<br>
+          Research intern under Amitava Das working in Multimodal and NLP research.
+        </p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-flag">HEERA SOFTWARE · ML INTERN</div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-name">Heera Software Private Limited</div>
+          <div class="project-links">
+            <span class="project-date">June 2025 - September 2025 (4 months)</span>
+          </div>
+        </div>
+        <p class="project-desc">
+          <strong>Machine Learning Intern</strong><br>
+          Developed a Machine Learning based approach for cross verification of human readable address and geo encoded location data.
+        </p>
       </div>
     </div>
   </div>
@@ -90,46 +109,46 @@
     </div>
 
     <div class="minor-grid">
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/IPPR_coursework" target="_blank" rel="noopener"><span class="mc-name">IPPR_coursework</span></a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/IPPR_coursework" target="_blank" rel="noopener">
+        <span class="mc-name">IPPR_coursework</span>
         <p class="mc-desc">Image Processing & Pattern Recognition — six documented experiments from classical filtering through edge detection.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/NLP_coursework" target="_blank" rel="noopener"><span class="mc-name">NLP_coursework</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/NLP_coursework" target="_blank" rel="noopener">
+        <span class="mc-name">NLP_coursework</span>
         <p class="mc-desc">Natural Language Processing coursework and lab submissions.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/DNN_coursework" target="_blank" rel="noopener"><span class="mc-name">DNN_coursework</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/DNN_coursework" target="_blank" rel="noopener">
+        <span class="mc-name">DNN_coursework</span>
         <p class="mc-desc">Deep Neural Networks foundations — MP neuron and perceptron implementations from first principles.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/DataMining_coursework" target="_blank" rel="noopener"><span class="mc-name">DataMining_coursework</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/DataMining_coursework" target="_blank" rel="noopener">
+        <span class="mc-name">DataMining_coursework</span>
         <p class="mc-desc">Lab submissions and materials for Data Mining coursework.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/bioinformatics_assignment1" target="_blank" rel="noopener"><span class="mc-name">bioinformatics_assignment 1 & 2</span></a>
-        <p class="mc-desc">Computational biology coursework assignments (CCA 3 & 4).</p>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/bioinformatics_assignment1" target="_blank" rel="noopener">
+        <span class="mc-name">bioinformatics_assignment 1 &amp; 2</span>
+        <p class="mc-desc">Computational biology coursework assignments (CCA 3 &amp; 4).</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/linear_regression" target="_blank" rel="noopener"><span class="mc-name">linear_regression</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/linear_regression" target="_blank" rel="noopener">
+        <span class="mc-name">linear_regression</span>
         <p class="mc-desc">Examines marginal accuracy gains in multivariate regression from applying standard ML best practices step by step.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/DataQuest" target="_blank" rel="noopener"><span class="mc-name">DataQuest</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/DataQuest" target="_blank" rel="noopener">
+        <span class="mc-name">DataQuest</span>
         <p class="mc-desc">Experimental models built for the DataQuest hackathon.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
-      <div class="minor-card">
-        <a href="https://github.com/ShreyashDhoot/learning-pytorch" target="_blank" rel="noopener"><span class="mc-name">learning-pytorch</span></a>
+      </a>
+      <a class="minor-card" href="https://github.com/ShreyashDhoot/learning-pytorch" target="_blank" rel="noopener">
+        <span class="mc-name">learning-pytorch</span>
         <p class="mc-desc">PyTorch fundamentals through a full classification workflow, worked through via FreeCodeCamp.</p>
         <span class="mc-lang">● Jupyter Notebook</span>
-      </div>
+      </a>
     </div>
   </div>
 </section>

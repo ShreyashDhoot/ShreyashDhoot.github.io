@@ -5,8 +5,9 @@
     { id: 'home', href: 'index.html', label: 'Home', idx: '01' },
     { id: 'research', href: 'research.html', label: 'Research', idx: '02' },
     { id: 'work', href: 'work.html', label: 'Work', idx: '03' },
-    { id: 'updates', href: 'updates.html', label: 'Updates', idx: '04' },
-    { id: 'interests', href: 'interests.html', label: 'Interests', idx: '05' },
+    { id: 'certifications', href: 'certificates.html', label: 'Certifications', idx: '04' },
+    { id: 'updates', href: 'updates.html', label: 'Updates', idx: '05' },
+    { id: 'interests', href: 'interests.html', label: 'Interests', idx: '06' },
   ];
 
   const linksHTML = links.map(l =>
