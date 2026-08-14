@@ -49,6 +49,25 @@
   .obsession-card .oc-icon { font-size: 1.6rem; margin-bottom: 12px; }
   .obsession-card h4 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 8px; }
   .obsession-card p { color: var(--text-faint); font-size: 13px; }
+  .obsession-link {
+    display: block;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .obsession-link:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  .channel-cta {
+    margin-top: 12px;
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 9px;
+  }
 </style>
 </head>
 <body data-page="interests">
@@ -65,8 +84,7 @@
   <div class="wrap">
     <div class="subtabs" role="tablist">
       <button class="subtab active" data-tab="hackathons" role="tab">Hackathons</button>
-      <button class="subtab" data-tab="fun" role="tab">General Fun Stuff</button>
-      <button class="subtab" data-tab="obsessions" role="tab">Nerdy Obsessions</button>
+      <button class="subtab" data-tab="fun" role="tab">General Fun Stuff + Nerdy Obsessions</button>
     </div>
 
     <!-- HACKATHONS -->
@@ -84,14 +102,7 @@
             <strong>build a working circuit</strong> from whatever you managed to procure, and the first team
             to get a functioning model up won.
           </p>
-          <p>
-            <!-- EDITABLE: add specifics — what did you build, how many teams, what made you win, any near-disaster moment -->
-            Add the details here: what circuit did you end up building, how many teams were competing, what was
-            the trickiest clue, and what actually won it for you — speed, cleverness, or just better soldering
-            under pressure?
-          </p>
         </div>
-        <div class="edit-note">// Draft — fill in the specifics of what you built and how the win happened.</div>
       </div>
 
       <div class="story-card">
@@ -101,30 +112,63 @@
         </div>
         <div class="story-body">
           <p>
-            Built an end-to-end policy-document Q&A system in the compressed timeframe of a hackathon —
-            PDF ingestion, custom OpenCV-based chunking, vector search, and an LLM answering layer, all
-            wired together into a working FastAPI service.
+            We got to know about the challenge at the very last second and honestly had no clear path in the beginning.
+            None of us had previously worked with FastAPI, OCR pipelines, or document question-answering systems,
+            so the first phase was pure learning while building under pressure.
           </p>
           <p>
-            <!-- EDITABLE: add the human side — team size, what broke at 3am, how it placed -->
-            Add the story here: who'd you build it with, what almost didn't work, how did it place?
+            For a week, we stayed in college until around 9 PM almost every day, iterating non-stop.
+            We exhausted the free Gemini API tokens while testing and refining the workflow, learned Pinecone vector
+            databases on the fly, explored PDF reading libraries, and experimented with multiple chunking and
+            tokenization strategies to keep retrieval quality and response relevance stable.
+          </p>
+          <p>
+            By the end, we had a working system ready: document ingestion, retrieval, and answer generation were all in place.
+            Deployment became the hard wall. Because of limited experience with Docker and packaging a heavy system,
+            our builds kept failing. Even so, the project felt like learning a month's worth of engineering in seven days,
+            and it changed how we approach rapid problem solving.
           </p>
         </div>
-        <div class="edit-note">// Draft — add team, placement, and the behind-the-scenes moment worth telling.</div>
       </div>
 
       <div class="story-card">
         <div class="story-top">
           <div class="story-title">DataQuest Hackathon</div>
-          <div class="story-meta">BUILT & SHIPPED</div>
+          <div class="story-meta">TOP 20 FINALIST</div>
         </div>
         <div class="story-body">
           <p>
-            <!-- EDITABLE -->
-            Add a short story here about the DataQuest hackathon — what the challenge was, what you built, how it went.
+            My team, <a href="https://www.linkedin.com/in/mihir-mohite/" target="_blank" rel="noopener"><strong>Mihir Mohite</strong></a> and
+            <a href="https://www.linkedin.com/in/nishad-dere-1341b2336/" target="_blank" rel="noopener"><strong>Nishad Dere</strong></a>, and I recently had
+            the incredible opportunity to participate in the DataQuest Hackathon organized under HackMIT-WPU.
+            It was a three-round competition that pushed our data science and machine learning skills to the limit.
+          </p>
+          <p>
+            <strong>Round 1:</strong> We built an ML model to predict sepsis risk from the given dataset.
+            Out of 315 teams, we made it to the top 40 and secured our place in the next round.
+          </p>
+          <p>
+            <strong>Round 2 (Overnight Challenge):</strong> We received the dataset at 1 PM and had to submit by 6 AM.
+            The task was to predict credit card default probability from a dataset with 1,200 features.
+            High dimensionality and severe class imbalance made precision-recall balance very difficult.
+          </p>
+          <p>
+            We tried multiple approaches:
+            SMOTE with XGBoost for oversampling and probability estimation, feature selection by removing highly
+            correlated and low-impact features, and undersampling the overrepresented class to improve precision-recall balance.
+            This strategy helped us break through to the final round as a top 20 team.
+          </p>
+          <p>
+            <strong>Round 3 (Finals):</strong> We presented our models and insights to a panel of judges,
+            explaining our methodology and the reasoning behind our choices. We did not win, but the learning,
+            experience, and connections were the real victories.
+          </p>
+          <p>
+            <strong>Key takeaways:</strong> The curse of dimensionality is real, understanding data matters more than blindly
+            applying models, and feature selection plus dimensionality reduction can make or break model performance.
+            Engaging with judges and reviewing winning approaches expanded our thinking beyond just coding a solution.
           </p>
         </div>
-        <div class="edit-note">// Draft — this one's a blank slate, tell me what happened.</div>
       </div>
     </div>
 
@@ -135,14 +179,7 @@
           <div class="story-title">Ultra Trail Running</div>
         </div>
         <div class="story-body">
-          <p>
-            <!-- EDITABLE -->
-            Write about your relationship with ultra trail running here — how you got into it, your favorite
-            routes or races, distances you've done, what it does for your head that sitting in front of a
-            GPU doesn't.
-          </p>
         </div>
-        <div class="edit-note">// Draft — this is your voice, not mine. Tell me the real version.</div>
       </div>
 
       <div class="story-card">
@@ -150,54 +187,45 @@
           <div class="story-title">Sketching & Art</div>
         </div>
         <div class="story-body">
-          <p>
-            <!-- EDITABLE -->
-            Write about sketching/art here — what you like to draw, medium, whether it's a stress outlet or
-            something more deliberate, any pieces you're proud of.
-          </p>
         </div>
-        <div class="edit-note">// Draft — add specifics, and if you have images, I can build a small gallery.</div>
       </div>
 
       <div class="story-card">
         <div class="story-top">
-          <div class="story-title">Whatever Else</div>
         </div>
-        <div class="story-body">
-          <p>
-            <!-- EDITABLE -->
-            Anything else that belongs here — music, food, travel, a weird hobby, whatever makes this feel like you.
-          </p>
-        </div>
-        <div class="edit-note">// Draft — open slot, use it or delete it.</div>
       </div>
-    </div>
 
-    <!-- NERDY OBSESSIONS -->
-    <div class="subpanel" id="panel-obsessions">
+      <div class="story-card">
+        <div class="story-top">
+          <div class="story-title">Nerdy Obsessions</div>
+        </div>
       <div class="obsession-grid">
-        <div class="obsession-card">
-          <div class="oc-icon">🌀</div>
-          <h4>Chaotic Systems</h4>
-          <p>Enough to write a paper about it — the throughline behind stochastic_chaos and honestly half my research taste.</p>
-        </div>
-        <div class="obsession-card">
-          <div class="oc-icon">🎨</div>
-          <h4>Diffusion Internals</h4>
-          <p>Not just using diffusion models — actually poking at what happens inside the denoising trajectory step by step.</p>
-        </div>
-        <div class="obsession-card">
-          <div class="oc-icon">?</div>
-          <h4><!-- EDITABLE --> Add one</h4>
-          <p>What's a rabbit hole you've gone down recently that isn't obviously "career relevant" but you can't stop thinking about?</p>
-        </div>
-        <div class="obsession-card">
-          <div class="oc-icon">?</div>
-          <h4><!-- EDITABLE --> Add one</h4>
-          <p>Same as above — could be a game, a math curiosity, a piece of hardware, anything.</p>
-        </div>
+        <a class="obsession-card obsession-link" href="https://www.youtube.com/@mndiaye_97" target="_blank" rel="noopener">
+          <div class="oc-icon">🌍</div>
+          <h4>Wildlife & Nature Stories</h4>
+          <p>
+            @mndiaye_97 for engaging wildlife facts and natural history deep dives.
+          </p>
+          <span class="channel-cta">Open Channel</span>
+        </a>
+        <a class="obsession-card obsession-link" href="https://www.youtube.com/@YourFoodLab" target="_blank" rel="noopener">
+          <div class="oc-icon">🍳</div>
+          <h4>Food Science & Cooking</h4>
+          <p>
+            @YourFoodLab for practical cooking techniques and recipe breakdowns.
+          </p>
+          <span class="channel-cta">Open Channel</span>
+        </a>
+        <a class="obsession-card obsession-link" href="https://www.youtube.com/@LindsayNikol" target="_blank" rel="noopener">
+          <div class="oc-icon">🦖</div>
+          <h4>Paleobiology & Evolution</h4>
+          <p>
+            @LindsayNikol for evolutionary biology, paleo topics, and science communication.
+          </p>
+          <span class="channel-cta">Open Channel</span>
+        </a>
       </div>
-      <div class="edit-note" style="margin-top: 24px;">// Draft — replace the "?" cards with your actual obsessions. Keep the ones about chaos/diffusion if they're accurate.</div>
+      </div>
     </div>
   </div>
 </section>

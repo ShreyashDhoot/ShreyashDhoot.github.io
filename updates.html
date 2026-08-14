@@ -18,6 +18,20 @@
   .snapshot-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
   .update-card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; padding: 22px; }
   .update-card + .update-card { margin-top: 18px; }
+  .blog-card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 8px; padding: 24px; }
+  .blog-card + .blog-card { margin-top: 16px; }
+  .blog-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); margin-bottom: 10px; }
+  .blog-title { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 10px; }
+  .blog-excerpt { color: var(--text-dim); }
+  .blog-add-box {
+    margin-top: 18px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
 </style>
 </head>
 <body data-page="updates">
@@ -64,18 +78,12 @@
   <div class="wrap">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-title">Recent Notes</h2>
+      <h2 class="section-title">Blogs</h2>
       <div class="section-line"></div>
     </div>
 
-    <div class="update-card">
-      Working on safer diffusion-based generation pipelines, particularly around alignment, auditing, and intervention during generation rather than after the fact.
-    </div>
-    <div class="update-card">
-      Building and iterating on robust multimodal and policy-document understanding systems for real-world inference tasks.
-    </div>
-    <div class="update-card">
-      Keeping the research direction grounded by studying uncertainty, adversarial behavior, and how structure emerges in chaotic or noisy systems.
+    <div class="blog-add-box">
+      No blogs added yet.
     </div>
   </div>
 </section>
