@@ -14,13 +14,15 @@
     `<a href="${l.href}" class="${l.id === page ? 'active' : ''}"><span class="idx">${l.idx}</span>${l.label}</a>`
   ).join('');
 
+  const cvButtonHTML = '<a href="cv/Shreyash_Dhoot_Resume_June2026.pdf" class="cv-button" target="_blank" rel="noopener" aria-label="Open CV PDF">CV</a>';
+
   const navHTML = `
     <div class="wrap">
       <a href="index.html" class="nav-brand" aria-label="Home"></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav-links" id="navLinks">${linksHTML}</div>
+      <div class="nav-links" id="navLinks">${linksHTML}${cvButtonHTML}</div>
     </div>
   `;
 
