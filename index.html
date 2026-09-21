@@ -26,7 +26,7 @@
   .hero-kicker::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
   h1.hero-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: 1.02; letter-spacing: -0.02em;
+    font-size: clamp(2.4rem, 6.5vw, 5.2rem); line-height: 1.05; letter-spacing: -0.02em;
     max-width: 900px;
     margin: 0;
     opacity: 0; animation: fadeUp 0.8s 0.25s ease-out forwards;
@@ -88,32 +88,80 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
   .denoise-strip {
-    margin-top: 72px; display: flex; align-items: center; max-width: 640px;
+    margin-top: 64px; display: flex; align-items: center; max-width: 680px; width: 100%;
     opacity: 0; animation: fadeUp 1s 0.7s ease-out forwards;
   }
-  .denoise-strip .cell { width: 14px; height: 14px; margin-right: 3px; border-radius: 2px; flex-shrink: 0; }
+  .denoise-strip .cell { flex: 1 1 0; max-width: 14px; height: 14px; margin-right: 3px; border-radius: 2px; min-width: 2px; }
+  .denoise-strip .cell:last-child { margin-right: 0; }
   .denoise-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); margin-top: 12px; letter-spacing: 0.03em; }
 
-  .quicklinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  @media (max-width: 700px) { .quicklinks { grid-template-columns: 1fr; } }
-  .ql-card {
-    border: 1px solid var(--border); border-radius: 6px; padding: 28px; background: var(--bg-card);
-    transition: all 0.25s ease;
+  @media (max-width: 860px) {
+    header.hero {
+      min-height: auto;
+      padding-top: 96px;
+      padding-bottom: 56px;
+      justify-content: flex-start;
+    }
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .hero-title-wrap {
+      max-width: 100%;
+    }
+    .hero-panel {
+      max-width: 100%;
+    }
+    .hero-visual {
+      order: 2;
+      width: 100%;
+    }
+    .hero-photo {
+      width: min(100%, 320px);
+      margin: 0 auto;
+    }
   }
-  .ql-card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
-  .ql-card .ql-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 12px; }
-  .ql-card h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 10px; }
-  .ql-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 16px; }
-  .ql-card .ql-go { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); }
-  .ql-card:hover .ql-go { color: var(--accent); }
 
-  .snapshot-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
-  @media (max-width: 800px) { .snapshot-grid { grid-template-columns: 1fr; gap: 36px; } }
-  .snapshot-text p { color: var(--text-dim); font-size: 1.02rem; margin-bottom: 18px; max-width: 56ch; }
-  .snapshot-text strong { color: var(--text); font-weight: 500; }
-  .snapshot-list { display: flex; flex-direction: column; gap: 18px; font-family: var(--font-mono); font-size: 13px; }
-  .snapshot-list li { list-style: none; padding-left: 20px; position: relative; color: var(--text-dim); }
-  .snapshot-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+  @media (max-width: 520px) {
+    header.hero {
+      padding-top: 84px;
+      padding-bottom: 40px;
+    }
+    h1.hero-title {
+      font-size: clamp(2.1rem, 9.5vw, 3rem);
+    }
+    .hero-keywords {
+      gap: 8px 12px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+    .hero-panel {
+      padding: 16px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      margin-top: 28px;
+      gap: 12px;
+    }
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-photo {
+      width: min(100%, 280px);
+    }
+    .denoise-strip {
+      margin-top: 36px;
+    }
+    .denoise-strip .cell {
+      height: 10px;
+      margin-right: 2px;
+      border-radius: 1px;
+    }
+  }
 </style>
 </head>
 <body data-page="home">

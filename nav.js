@@ -30,8 +30,26 @@
   nav.innerHTML = navHTML;
   document.body.insertBefore(nav, document.body.firstChild);
 
-  document.getElementById('navToggle').addEventListener('click', event => {
-    const isOpen = document.getElementById('navLinks').classList.toggle('open');
-    event.currentTarget.setAttribute('aria-expanded', String(isOpen));
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', event => {
+    event.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', event => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(event.target)) {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 })();
