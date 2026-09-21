@@ -18,8 +18,8 @@
 
   const navHTML = `
     <div class="wrap">
-      <a href="index.html" class="nav-brand" aria-label="Home"></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <a href="index.html" class="nav-brand" aria-label="Home"><span class="dot"></span>Shreyash Dhoot</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">${linksHTML}${cvButtonHTML}</div>
@@ -30,7 +30,8 @@
   nav.innerHTML = navHTML;
   document.body.insertBefore(nav, document.body.firstChild);
 
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').addEventListener('click', event => {
+    const isOpen = document.getElementById('navLinks').classList.toggle('open');
+    event.currentTarget.setAttribute('aria-expanded', String(isOpen));
   });
 })();

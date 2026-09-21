@@ -11,6 +11,8 @@
 <style>
   .project { border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); margin-bottom: 24px; overflow: hidden; transition: border-color 0.25s ease; }
   .project:hover { border-color: var(--border-bright); }
+  button.project { width: 100%; padding: 0; color: inherit; text-align: left; font: inherit; cursor: pointer; }
+  button.project:hover, button.project:focus-visible { border-color: var(--accent); }
   .project-flag { display: flex; align-items: center; gap: 10px; padding: 14px 28px; background: rgba(52, 199, 149, 0.06); border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.06em; }
   .project-body { padding: 32px 28px; }
   .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -49,7 +51,7 @@
       <div class="section-line"></div>
     </div>
 
-    <div class="project">
+    <button class="project experience-card" type="button" data-experience="hcltech" aria-haspopup="dialog">
       <div class="project-flag">HCLTECH · INTERN</div>
       <div class="project-body">
         <div class="project-top">
@@ -63,9 +65,9 @@
           Industry Software Division – DFMPro Solution – Automation and AI-Based Enhancements
         </p>
       </div>
-    </div>
+    </button>
 
-    <div class="project">
+    <button class="project experience-card" type="button" data-experience="pragya" aria-haspopup="dialog">
       <div class="project-flag">PRAGYA · UNDERGRADUATE RESEARCHER</div>
       <div class="project-body">
         <div class="project-top">
@@ -80,9 +82,9 @@
           Research intern under Amitava Das working in Multimodal and NLP research.
         </p>
       </div>
-    </div>
+    </button>
 
-    <div class="project">
+    <button class="project experience-card" type="button" data-experience="heera" aria-haspopup="dialog">
       <div class="project-flag">HEERA SOFTWARE · ML INTERN</div>
       <div class="project-body">
         <div class="project-top">
@@ -96,7 +98,7 @@
           Developed a Machine Learning based approach for cross verification of human readable address and geo encoded location data.
         </p>
       </div>
-    </div>
+    </button>
   </div>
 </section>
 
@@ -160,10 +162,62 @@
       <a href="https://github.com/ShreyashDhoot" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/shreyashdhoot" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    Built by Shreyash Dhoot · Served over GitHub Pages
+    Built by Shreyash Dhoot · Served over Render
   </div>
 </footer>
 
+<dialog class="experience-dialog" id="experienceDialog" aria-labelledby="experienceDialogTitle">
+  <div class="dialog-inner">
+    <div class="dialog-topline">
+      <span class="page-kicker">EXPERIENCE NOTES</span>
+      <button class="dialog-close" type="button" id="dialogClose" aria-label="Close experience details">×</button>
+    </div>
+    <p class="dialog-meta" id="experienceDialogMeta"></p>
+    <h2 class="dialog-title" id="experienceDialogTitle"></h2>
+    <div class="dialog-content" id="experienceDialogContent"></div>
+  </div>
+</dialog>
+
 <script src="nav.js"></script>
+<script>
+  const experienceDetails = {
+    hcltech: {
+      meta: 'HCLTECH · INTERN · JULY 2026 - PRESENT',
+      title: 'Automation and AI-based enhancements',
+      content: '<p>At HCLTech, I work in the Industry Software Division on the DFMPro solution, exploring how automation and AI can improve engineering workflows.</p><h3>What I am learning</h3><ul><li>How AI-assisted features fit into a mature industry software product.</li><li>How to turn an open-ended idea into a reliable workflow for real users.</li><li>How product constraints shape the design of automation systems.</li></ul><h3>What I am working on</h3><p>My work is focused on understanding the existing workflow, identifying opportunities for automation, and helping develop practical AI-based enhancements. This section will grow as the internship progresses.</p>'
+    },
+    pragya: {
+      meta: 'PRAGYA · UNDERGRADUATE RESEARCHER · AUGUST 2025 - PRESENT',
+      title: 'Multimodal and NLP research',
+      content: '<p>Through the Pragya program at BITS Pilani, Goa, I work under Amitava Das on multimodal and natural language processing research.</p><h3>What I am learning</h3><ul><li>How to frame research questions that can be tested with data and experiments.</li><li>How language and vision models behave under ambiguity, distribution shift, and adversarial pressure.</li><li>How to read, reproduce, and communicate research results with care.</li></ul><h3>What I am working on</h3><p>My work involves investigating multimodal and NLP systems, building experiments, analyzing model behavior, and turning observations into clearer research directions.</p>'
+    },
+    heera: {
+      meta: 'HEERA SOFTWARE · MACHINE LEARNING INTERN · JUNE - SEPTEMBER 2025',
+      title: 'Address and geolocation cross-verification',
+      content: '<p>At Heera Software, I developed a machine learning approach for cross-verifying human-readable addresses against geo-encoded location data.</p><h3>What I learned</h3><ul><li>How messy real-world location data differs from clean classroom datasets.</li><li>How to compare text and geographic signals when neither source is perfectly reliable.</li><li>How evaluation choices affect the usefulness of a verification system.</li></ul><h3>What I worked on</h3><p>I explored the end-to-end problem of matching address information with coordinates, from understanding the data and defining useful signals to designing a model-based verification workflow.</p>'
+    }
+  };
+
+  const dialog = document.getElementById('experienceDialog');
+  const dialogTitle = document.getElementById('experienceDialogTitle');
+  const dialogMeta = document.getElementById('experienceDialogMeta');
+  const dialogContent = document.getElementById('experienceDialogContent');
+  const dialogClose = document.getElementById('dialogClose');
+
+  document.querySelectorAll('[data-experience]').forEach(card => {
+    card.addEventListener('click', () => {
+      const detail = experienceDetails[card.dataset.experience];
+      dialogMeta.textContent = detail.meta;
+      dialogTitle.textContent = detail.title;
+      dialogContent.innerHTML = detail.content;
+      dialog.showModal();
+    });
+  });
+
+  dialogClose.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: shreyash-profile
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
